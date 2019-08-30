@@ -1,287 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Dan Mu's Website</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <style>
-        .button-rounded {
-            background-color: white;
-            color: black;
-            border: 2px solid #555555;
-            border-radius: 12px;
-        }
-
-        .contact-bg {
-            background: url("img/contact-bg.png") top right no-repeat ;
-            color: black;
-            background-size: cover;
-            border-radius: 2px;
-            text-align: center;
-            vertical-align: middle;
-        }
-
-        .home {
-            background: url("img/homg-bg.jpeg") top right no-repeat ;
-            height: 100vh;
-            background-size: cover;
-        }
-
-        .grey-bg {
-            background: url("img/project-bg.jpg") top right no-repeat;
-            background-size: cover;
-        }
-
-        .grey-bg p {
-            color: black;
-        }
-
-        .grey-bg h2 {
-            color: black;
-        }
-        .grey-bg h4 {
-            color: black;
-        }
-
-        div.gallery {
-            border: 1px solid #ccc;
-        }
-
-        div.gallery:hover {
-            border: 1px solid #777;
-        }
-
-        div.gallery img {
-            width: 100%;
-            height: auto;
-        }
-
-        div.desc {
-            padding: 15px;
-            text-align: center;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .responsive {
-            padding: 0 6px;
-            float: left;
-            width: 24.99999%;
-        }
-
-        @media only screen and (max-width: 700px) {
-            .responsive {
-                width: 49.99999%;
-                margin: 6px 0;
-            }
-        }
-
-        @media only screen and (max-width: 500px) {
-            .responsive {
-                width: 100%;
-            }
-        }
-
-        .clearfix:after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-    </style>
+  <title>Dan's Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
-<!----
-----Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">Dan Mu</a>
+.hero-image {
+  background-image: url("image/meinv.jpeg");
+  background-color: #cccccc;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+  position: relative;
+}
 
-        <div class="collapse navbar-collapse">
-            <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item"><a href="#home" class="nav-link"><span>Home</span></a></li>
-                <li class="nav-item"><a href="#about" class="nav-link"><span>About</span></a></li>
-                <li class="nav-item"><a href="#project" class="nav-link"><span>Projects</span></a></li>
-                <li class="nav-item"><a href="#contact" class="nav-link"><span>Contact</span></a></li>
-            </ul>
-        </div>
-    </div>
+.hero-text {
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+
+.top-nav-collapse {
+  background-color: white !important;
+}
+
+.navbar:not(.top-nav-collapse) {
+  background: transparent !important;
+}
+
+.jumbotron{;
+  background-size: cover;
+  background-color: #cccccc;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.jumbotron h1 {
+  text-align: center;
+  padding-top: 30px;
+}
+.jumbotron p {
+  font-size:1.5em;
+  color:black;
+  text-align: center;
+  padding-top: 50px;
+
+}
+
+
+h2 {
+  margin:2em; 
+  letter-spacing:0.2em; 
+  color: #EEE
+}
+
+.pic {
+  margin: 1em;
+  width: 250px;
+  height: 250px;
+  display: inline-block;
+  border-radius: 50px;
+  transform: rotate(45deg);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  padding:0;
+  box-shadow: 2px 2px 4px #000000;
+  margin: 0 auto;
+}
+
+.pic p {
+  position: absolute;
+  transform: rotate(-45deg);
+  top: 30%;
+  left: -20%;
+  background: rgba(0, 0, 0, 0.6);
+  padding: center;
+  width:100%;
+  text-align:center;
+  color: white;
+  transition: all 0.3s ease-in-out;
+  
+}
+
+.pic:hover {
+  transform: none;
+  transform: scale(1.5);
+  z-index:3;
+  box-shadow: 2px 2px 4px #000000;
+}
+
+.pic:hover > p {
+  transform: none;
+  top: 0;
+  
+}
+
+.image  {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s linear
+  
+}
+.pic:hover > img {
+  transform: none;
+}
+
+.container-bg {
+  background: url("image/gezi.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+
+}
+
+.card:hover {
+transform: none;
+  transform: scale(1);
+  z-index:3;
+    box-shadow: 2px 2px 4px #000000;
+}
+.image2 img:hover {
+transform: none;
+  transform: scale(1.5);
+  z-index:3;
+  box-shadow: 2px 2px 4px #000000;
+}
+
+.image3{
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+}
+
+.container-ab:hover .image3{
+  opacity: 0.3;
+}
+
+.container-ab:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: white;
+  color: black;
+}
+
+
+</style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="image/logo.png" alt="logo" style="width:40px;"><strong> Dan Mu</strong>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#home"><strong>Home</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about"><strong>About</strong></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#work"><strong>Work</strong></a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#blog"><strong>Blog</strong></a>
+      </li> 
+      <li class="nav-item">
+        <a class="nav-link" href="#contact"><strong>Contact</strong></a>
+      </li> 
+    </ul>
+  </div> 
 </nav>
 
-<!--
-----Home-->
-<section id="home" class="home" style="height: 100vh">
-    <div class="row">
-        <div class="col-md-9">
-            <div id="demo" class="carousel slide" data-ride="carousel">
-
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo" data-slide-to="1"></li>
-
-                </ul>
-
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/Dan1.jpeg" alt="Los Angeles" style="height:100vh" class="img-fluid">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/Dan3.JPG" alt="Chicago" style="height:100vh" class="img-fluid">
-                    </div>
-                </div>
-
+<!-- home-->
+<section id="home" class="hero-image">
+    <div class="hero-text">
+      <h1 style="font-size:50px">I am Dan Mu</h1>
+      <h3>UI Design && Software Developer</h3>
+       <div class="footbutton py-4">
+               <a href="#about" class="btn btn-outline-warning">MORE INFO &raquo;</a>
             </div>
-        </div>
-        <div class="col-md-3">
-            <br/><br/><br/><br/>
-            <h1>I'M</h1>
-            <h1>Dan Mu</h1>
-            <br/><br/>
-            <h3>Professional</h3>
-            <h3>Software</h3>
-            <h3>Developer</h3>
-        </div>
     </div>
+  </section>
+
+  <!-- about -->
+  <section id="about" class="jumbotron" style="background-image: url('image/haibian.jpeg')">
+    <div class="container-ab">
+      <div class="middle">
+        <div class="text">
+          <h1><strong> ABOUT ME </strong></h1>
+          <P>
+           Hi, my name is Dan Mu. I am currently a student from the University of California San Diego, majoring in computer science. My goal is to become a software developer. In the past, I led the team to do research on software verification through gamification in order to improve the correctness of the software verification system. I have also worked in a startup company called UiLink, developing an app that can help students find housing as well as roommates. I enjoy approaching complex projects and desire to build an understanding of the customer’s needs. Have a look at the information below, and get in touch to learn more.
+         </p>
+       </P>
+     </div>
+   </div>
+        <h1><strong> ABOUT ME </strong></h1>
+          <P>
+           Hi, my name is Dan Mu. I am currently a student from the University of California San Diego, majoring in computer science. My goal is to become a software developer. In the past, I led the team to do research on software verification through gamification in order to improve the correctness of the software verification system. I have also worked in a startup company called UiLink, developing an app that can help students find housing as well as roommates. I enjoy approaching complex projects and desire to build an understanding of the customer’s needs. Have a look at the information below, and get in touch to learn more.
+         </p>
+       </P>
+
+        <hr class="my-4">
+        <p class="buttomButron">
+        <a class="btn btn-warning btn-lg" href="#" role="button" onclick="window.location.href='https://drive.google.com/file/d/1khmA4FwDjdzZJ4oBWBPv4BjkLrERxOvG/view?usp=sharing'"><strong>RESUMRE</strong></a>
+        <a class="btn btn-warning btn-lg" href="#" role="button" onclick="window.location.href='https://github.com/danmu2018'"><strong>GITHUB</strong></a>
+        </p>
+      </P>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section id="work" class="container-bg">
+    <div class="container-wk">
+      <h1><strong>WORK</strong></h1>
+
+    <div class="row text-center">
+      <div class="col-md-4 mb-4">
+         <div class="card h-100">
+            <img class="card-img-top" src="image/dianshi1.jpeg" alt="UCTV">
+            <div class="card-body">
+               <h4 class="card-title">UCTV INTERVIEW</h4>
+               <p class="card-text">As part of UCSD Early Research Scholarship Program, my team was interviewed by UCTV.</p>
+            </div>
+            <div class="footbutton py-4">
+               <a href="#" class="btn btn-warning" onclick="window.location.href='https://www.uctv.tv/shows/34691'">READ MORE &raquo;</a>
+            </div>
+         </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+         <div class="card h-100">
+            <img class="card-img-top" src="image/UniLink.jpeg" alt="UniLink">
+            <div class="card-body">
+               <h4 class="card-title">UniLink Application</h4>
+                  <p class="card-text">My team created a react native app aiming at using machine learning to help students find houses and match them with roommates.</p>
+            </div>
+            <div class="footbutton py-4">
+               <a href="#" class="btn btn-danger" onclick="window.location.href='https://drive.google.com/file/d/1ZZSOwX9cUTCZXgjaeSzH_JjjSzW2r_D9/view?usp=sharing'">READ MORE &raquo;</a>
+            </div>
+         </div>
+      </div>
+      
+      <div class="col-md-4 mb-4">
+         <div class="card h-100">
+            <img class="card-img-top" src="image/HiFriends.jpeg" alt="HiFriends">
+            <div class="card-body">
+               <h4 class="card-title">UI DESIGN</h4>
+               <p class="card-text">I built a UI design for a mobile application that helps students release their stresses.</p>
+            </div>
+            <div class="footbutton py-4">
+               <a href="#project" class="btn btn-info">READ MORE &raquo;</a>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
 </section>
 
-<section id="about" style="margin:20px;">
+ <section id="project" class="jumbotron" style="background-image: url('image/qunzi.jpg')">
+    <div class="container-pr">
+          <h2><strong>P.R.O.J.E.C.T</strong></h2>
+        </div>
+        <section class="image2">
+            <div class="row text-center">
+          <div class="col-md-2 mb-2">
+             <div class="card h-50">
+                <img class="card-img-top" src="image/main.png">
+             </div>
+          </div>
+          <div class="col-md-2 mb-2">
+             <div class="card h-50">
+                <img class="card-img-top" src="image/cate.png">
+             </div>
+          </div>
+          <div class="col-md-2 mb-2">
+             <div class="card h-50">
+                <img class="card-img-top" src="image/vr1.png">
+             </div>
+          </div>
+          <div class="col-md-2 mb-2">
+             <div class="card h-50">
+                <img class="card-img-top" src="image/vr2.png">
+             </div>
+          </div>
+          <div class="col-md-2 mb-2">
+             <div class="card h-50">
+                <img class="card-img-top" src="image/stress1.png">
+             </div>
+          </div>
+          <div class="col-md-2 mb-2">
+             <div class="card h-50">
+                <img class="card-img-top" src="image/stress2.png">
+             </div>
+          </div>
+        </div>
+      </section>
+                
+    </section>
+    
+
+     
+      <!-- Blog -->
+  <section id="blog" class="jumbotron" style="background-image: url('image/back.jpg')">
     <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-5">
-                <div>
-                    <img style="height: 70%; width: 70%" src="img/Dan4.JPG" class="rounded img-fluid">
-                </div>
-            </div>
-            <div class="col-md-5">
-                <br/>
-                <div class="row justify-content-start">
-                    <h2 class="mb-4" style="font-size: 34px; text-transform: capitalize;">About Me</h2>
-                    <p>Hi, my name is Dan Mu. I am currently a student from the University of California San Diego,
-                        majoring in computer science. My goal is to become a software developer. In the past, I led
-                        the team to do research on software verification through gamification in order to improve
-                        the correctness of the software verification system. I have also worked in a startup company
-                        called AiLink, developing an app that can help students find housing as well as roommates.
-                        I enjoy approaching complex projects and desire to build an understanding of the customer’s
-                        needs. Have a look at the information below, and get in touch to learn more.</p>
-                </div>
-                <button class="button button-rounded btn-lg"
-                    onclick="window.location.href='https://drive.google.com/file/d/1khmA4FwDjdzZJ4oBWBPv4BjkLrERxOvG/view?usp=sharing'">RESUME</button>
-                <button class="button button-rounded btn-lg"
-                        onclick="window.location.href='https://github.com/danmu2018'">GitHub</button>
-            </div>
+          <h1><strong>BLOG</strong></h1>
+          <h2><strong>L.I.F.E | MADE WITH CODE</strong></h2>
         </div>
-    </div>
-</section>
-
-<section id="project" style="margin-top: 50px; margin-bottom: 50px" class="grey-bg" >
-    <br/><br/><br/>
-    <h2 class="text-center"> Responsive Image Gallery</h2>
-    <h4 class="text-center">Resize the browser window to see the effect.</h4>
-    <br/><br/><br/>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <div id="demo2" class="carousel slide" data-ride="carousel">
-
-                <!-- Indicators -->
-                <ul class="carousel-indicators">
-                    <li data-target="#demo" data-slide-to="0" class="active"></li>
-                    <li data-target="#demo" data-slide-to="1"></li>
-
-                </ul>
-
-                <!-- The slideshow -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/UniLink1.png" alt="Los Angeles" class="img-fluid">
-                        <h1>UniLink App</h1>
-                        <p>My team created a react native app that runs on both Android and IOS system,
-                            aiming at using machine learning to help students find houses and match them
-                            with roommates. I mainly lead the team to design the user interface and implement
-                            the code with JavaScript. I have also taken part in implementing the chat
-                            function with AWS GraphQL. </p>
-                        <br/><br/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/UniLink2.png" alt="Chicago" class="img-fluid">
-                        <h1>UniLink App</h1>
-                        <p>My team created a react native app that runs on both Android and IOS system,
-                            aiming at using machine learning to help students find houses and match them
-                            with roommates. I mainly lead the team to design the user interface and implement
-                            the code with JavaScript. I have also taken part in implementing the chat
-                            <f></f>unction with AWS GraphQL. </p>
-                        <br/><br/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/UniLink3.png" alt="Los Angeles" class="img-fluid">
-                        <h1>UniLink App</h1>
-                        <p>My team created a react native app that runs on both Android and IOS system,
-                            aiming at using machine learning to help students find houses and match them
-                            with roommates. I mainly lead the team to design the user interface and implement
-                            the code with JavaScript. I have also taken part in implementing the chat
-                            <f></f>unction with AWS GraphQL. </p>
-                        <br/><br/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/research1.png" alt="Chicago" class="img-fluid">
-                        <h1>Loop Invariant</h1>
-                        <p>As a project manager, I led the team developing a mobile application with Unity.
-                            Our research goal is to optimize the results derived from the previous invariant
-                            game, through maximizing both the number of players and the quantity of time that
-                            the players spend generating solutions through gameplay. As part of UCSD Early Research
-                            Scholarship Program, my team was interviewed by UCTV. Click here to see the interview
-                            and Click here to learn more about the project.  </p>
-                        <br/><br/>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/research2.png" alt="Chicago" class="img-fluid">
-                        <h1>Loop Invariant</h1>
-                        <p>As a project manager, I led the team developing a mobile application with Unity.
-                            Our research goal is to optimize the results derived from the previous invariant
-                            game, through maximizing both the number of players and the quantity of time that
-                            the players spend generating solutions through gameplay. As part of UCSD Early Research
-                            Scholarship Program, my team was interviewed by UCTV. Click here to see the interview
-                            and Click here to learn more about the project.  </p>
-                        <br/><br/>
-                    </div>
-                </div>
-
-                <!-- Left and right controls -->
-                <a class="carousel-control-prev" href="#demo2" data-slide="prev">
-                    <span class="carousel-control-prev-icon"></span>
-                </a>
-                <a class="carousel-control-next" href="#demo2" data-slide="next">
-                    <span class="carousel-control-next-icon"></span>
-                </a>
-
+            <div class="pic">
+              <img class="image" src="image/xuexi.jpeg">
+              <p><strong>L</strong>-ab</p>
             </div>
+            <div class="pic">
+              <img class="image" src="image/dianshi2.jpeg">
+              <p><strong>I</strong>-nterview</p>
+            </div>
+            <div class="pic">
+              <img class="image" src="image/ersp1.jpeg">
+              <p><strong>F</strong>-riend</p>
+            </div>
+            <div class="pic">
+              <img class="image" src="image/me.jpeg">
+              <p>m-<strong>E !</strong></p>
+            </div>
+              <hr class="my-4">
+            <p class="buttomButron">
+              <button type="footbutton py-4" class="btn btn-primary pull-right" id="blogButton" onclick="window.location.href=' https://medium.com/@Five.Stars'"><strong>GO TO BLOG &raquo;</strong></button>
+            </p>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+    
 
-</section>
-
-<section id="contact" style="margin-top: 20px; margin-bottom: 20px; height: 80vh">
+      <!-- Contact -->
+  <section id="contact" class="jumbotron"style="background-image: url('image/cse.jpeg')">
     <div class="text-center">
-        <h1>CONTACT ME</h1>
+        <h1><strong>CONTACT ME</strong></h1>
     </div>
     <br/><br/>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 text-center contact-bg" style="transform: rotate(9deg)">
+            <div class="col-md-1 text-center contact-bg" style="transform: rotate(9deg)">
                 <br/><br/><br/><br/>
                 <div style="transform: rotate(-9deg)">
-                    <h1>Dan Mu</h1>
-                    <h4>d1mu@ucsd.edu</h4>
-                    <h4>502 Mitra City</h4>
-                    <h4>6194023805</h4>
                 </div>
             </div>
             <div class="col-md-6">
@@ -330,6 +430,13 @@
         </div>
     </div>
 </section>
+
+
+
+<script src="js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
 
 </body>
 </html>
